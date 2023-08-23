@@ -17,13 +17,13 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
 }
 
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", console.log(password)); {
+generateBtn.addEventListener("click", writePassword);
 
-function startPrompt() {
+function generatePassword() {
   let length = prompt("Enter a number between 8 and 128 for password lenght.", "10");
   var password = "";
   if (length >= 8 && length <= 128) {
@@ -37,21 +37,34 @@ function startPrompt() {
       password += numbers;
     }
     if (confirm("Do you want symbols in your password?") == true) {
-      password += Symbol;
+      password += symbols;
     }
     else if (length < 8) {
       alert("Not enough characters in your password. Try again.");
-      startPrompt();
+      generatePassword();
     }
-    else (length < 128); {
+    else if (length > 128) {
+      console.log(password);
       alert("You have to many characters in your passwrord. Try again.");
-      startPrompt();
+      generatePassword();
     }
-  }
 
+
+
+    // console.log(password);
+    // return password;
   }
+  for (var i = 0; i <= generatePassword; i++) {
+      var randomNumber = Math.floor(Math.random() * chars.length);
+      password += generatePassword.substring(randomNumber, randomNumber +1);
+     }
+     document.getElementById("password").value = password;
+    
+      console.log(password);
+    return password;
+
 }
-  
+
 
 
 
@@ -72,6 +85,3 @@ function startPrompt() {
 // THEN a password is generated that matches the selected criteria
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
-
-
-
